@@ -24,7 +24,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Produit implements Serializable {
 
-	/**
+	/** Nourhene_Produit_Branchgit commit -m "
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
