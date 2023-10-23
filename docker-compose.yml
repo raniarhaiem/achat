@@ -23,7 +23,7 @@ services:
     ports:
       - 4200:80
     volumes:
-      - /c/Users/Rania/Downloads/crud-tuto-front/crud-tuto-front/dist/crudtuto-Front:/usr/share/nginx/html
+      - /vagrant/shared_folder:/usr/share/nginx/html
 
 volumes:
   db:
