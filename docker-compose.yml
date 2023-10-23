@@ -8,6 +8,7 @@ services:
       - 3307:3306
     volumes:
       - db:/var/lib/mysql
+      -
   achat-backend:
       image: raniarhaiem/achat:1-0
       restart: unless-stopped
