@@ -24,8 +24,6 @@ services:
       - 4200:80
     volumes:
       - /c/Users/Rania/Downloads/crud-tuto-front/crud-tuto-front/dist:/usr/share/nginx/html
-      - /etc/nginx/conf.d/my-site.conf:/etc/nginx/conf.d/my-site.conf
-
 
 volumes:
   db:
