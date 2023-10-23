@@ -24,6 +24,8 @@ services:
       - 4200:80
     volumes:
       - /vagrant/shared_folder:/usr/share/nginx/html
+      - /etc/nginx/conf.d/my-site.conf:/etc/nginx/conf.d/my-site.conf
+
 
 volumes:
   db:
