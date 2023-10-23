@@ -1,5 +1,5 @@
 FROM openjdk:11-jre-slim
-EXPOSE 8089
+EXPOSE 8082
 WORKDIR /app
 
 # Download the JAR file from Nexus and copy it into the container
