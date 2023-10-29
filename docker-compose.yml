@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    ports:
+      - 3307:3306
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  achat-backend:
+    image: nourhene2311/achat:1-0
+    restart: unless-stopped
+    ports:
+      - 8082:8082
+    depends_on:
+      - mysqldb
+  achat-frontend:
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+      - 4200:80
+    volumes:
+      - /c/Users/nourhene/Downloads/crud-tuto-front/crud-tuto-front:/usr/share/nginx/html
+
+volumes:
+  db:
