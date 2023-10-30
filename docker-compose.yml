@@ -10,6 +10,7 @@ services:
       - db:/var/lib/mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: achatdb  # Nom de la base de données
   achat-backend:
     image: nourhene2311/achat:1-0
     restart: unless-stopped
