@@ -17,7 +17,6 @@ services:
         - 8082:8082
       depends_on:
         - mysqldb
-        -
   achat-frontend:
     image: nginx:latest
     restart: unless-stopped
