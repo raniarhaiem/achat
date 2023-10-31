@@ -19,12 +19,11 @@ services:
     depends_on:
       - mysqldb
   achat-frontend:
-    image: nginx:latest
+    image: nourhene2311/front-image:1.0.0
     restart: unless-stopped
     ports:
       - 4200:80
-    volumes:
-      - /c/Users/nourhene/Downloads/crud-tuto-front/crud-tuto-front/dist:/usr/share/nginx/html
+
 
 volumes:
   db:
