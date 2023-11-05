@@ -33,12 +33,12 @@ services:
     stdin_open: true
     tty: true
   achat-frontend:
+    build: ./
     image: riadhbellazreg/achat-front:latest  
-    restart: unless-stopped
     ports:
-      - 4402:80
-    volumes:
-      - /home/vagrant/achat-front/usr/share/nginx/html
+      - 4002:4080
+    # volumes:
+    #   - /home/vagrant/achat-front/usr/share/nginx/html
 
 volumes:
   db:
