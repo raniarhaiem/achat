@@ -12,7 +12,7 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=achatdb
   achat-backend:
-    image: ahmedabdelhedi/achat
+    image: ahmedabdelhedi/achat:1.0
     restart: unless-stopped
     ports:
       - 8082:8082
