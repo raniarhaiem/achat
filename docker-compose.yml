@@ -2,10 +2,11 @@ version: '3.8'
 
 services:
   mysqldb:
-    image: mysql:5.7
+    image: mysql:latest
+    container_name: mysqldb
     restart: unless-stopped
     ports:
-      - 3307:3306
+      - 3306:3306
     volumes:
       - db:/var/lib/mysql
     environment:
