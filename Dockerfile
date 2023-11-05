@@ -1,15 +1,10 @@
-# Stage 1: Build the JAR file using Maven
-FROM maven:3.3-jdk-8 as maven-build
-WORKDIR /usr/src/app
-COPY . /usr/src/app
-RUN mvn package
-
-# Stage 2: Create the final image with the JAR file
-FROM openjdk:8
+FROM openjdk:11-jre-slim
 EXPOSE 8082
 WORKDIR /app
 
-# Copy the JAR file from the previous build stage
-COPY --from=maven-build /usr/src/app/target/achat-1.0.jar achat-1.0.jar
+# Download the JAR file from Nexus and copy it into the container
+RUN apt-get update && apt-get install -y curl
+RUN curl -o achat-1.0.jar -L "http://192.168.33.10/repository/maven-releases/tn/esprit/rh/achat/1.0/achat-1.0.jar"
 
+# Define the entry point for your application
 ENTRYPOINT ["java", "-jar", "achat-1.0.jar"]

@@ -3,40 +3,27 @@ version: '3.8'
 services:
   mysqldb:
     image: mysql:5.7
-    container_name: mysqldb
     restart: unless-stopped
     ports:
-      - 3306:3306
+      - 3307:3306
     volumes:
       - db:/var/lib/mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-    networks:
-      - achatnetwork
-
   achat-backend:
-    image: ahmedabdelhedi/achat:1.0
+    image: ahmedabdelhedi/achat:1-0
     restart: unless-stopped
     ports:
       - 8082:8082
     depends_on:
       - mysqldb
-    networks:
-      - achatnetwork
-
   achat-frontend:
     image: nginx:latest
     restart: unless-stopped
     ports:
       - 4200:80
     volumes:
-      - /g/crud-tuto-front/vol:/usr/share/nginx/html
-    networks:
-      - achatnetwork
+      - /g/crud-tuto-front/crud-tuto-front/dist:/usr/share/nginx/html
 
 volumes:
   db:
-    driver: local
-
-networks:
-  achatnetwork:
