@@ -5,12 +5,15 @@ services:
     image: mysql:5.7
     restart: unless-stopped
     ports:
-      - 3307:3306
+      - 3306:3306
     volumes:
       - db:/var/lib/mysql
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=achatdb
+    networks:
+      - achatnetwork
+
   achat-backend:
     image: ahmedabdelhedi/achat:1.0
     restart: unless-stopped
@@ -18,6 +21,9 @@ services:
       - 8082:8082
     depends_on:
       - mysqldb
+    networks:
+      - achatnetwork
+
   achat-frontend:
     image: nginx:latest
     restart: unless-stopped
@@ -25,6 +31,12 @@ services:
       - 4200:80
     volumes:
       - /g/crud-tuto-front/vol:/usr/share/nginx/html
+    networks:
+      - achatnetwork
 
 volumes:
   db:
+    driver: local
+
+networks:
+  achatnetwork:
