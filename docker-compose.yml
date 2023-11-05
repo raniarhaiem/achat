@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mysqldb:
-    image: mysql:latest
+    image: mysql:5.7
     container_name: mysqldb
     restart: unless-stopped
     ports:
@@ -11,7 +11,7 @@ services:
       - db:/var/lib/mysql
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-      - MYSQL_DATABASE=achatdb
+
     networks:
       - achatnetwork
 
