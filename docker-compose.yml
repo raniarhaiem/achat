@@ -10,8 +10,7 @@ services:
     volumes:
       - db:/var/lib/mysql
     environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-
+      MYSQL_ROOT_PASSWORD: root
     networks:
       - achatnetwork
 
