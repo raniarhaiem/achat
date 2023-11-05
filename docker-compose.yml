@@ -33,7 +33,7 @@ services:
     stdin_open: true
     tty: true
   achat-frontend:
-    image: achat-front:latest  
+    image: riadhbellazreg/achat-front:latest  
     restart: unless-stopped
     ports:
       - 4402:80
