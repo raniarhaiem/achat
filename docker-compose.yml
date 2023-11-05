@@ -32,5 +32,13 @@ services:
       - .m2:/root/.m2
     stdin_open: true
     tty: true
+  achat-frontend:
+    image: achat-front:latest  
+    restart: unless-stopped
+    ports:
+      - 4402:80
+    volumes:
+      - /home/vagrant/frontachat/usr/share/nginx/html
+
 volumes:
   db:
