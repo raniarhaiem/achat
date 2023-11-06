@@ -36,7 +36,7 @@ services:
     build: ./
     image: riadhbellazreg/achat-front:latest  
     ports:
-      - 4002:4080
+      - 4080:4002
     # volumes:
     #   - /home/vagrant/achat-front/usr/share/nginx/html
 
