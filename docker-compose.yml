@@ -12,7 +12,7 @@ services:
        MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
   backend-service:
-    image: backachat:latest  
+    image: onskaroui/backachat:latest  
     restart: unless-stopped
     ports:
       - 8089:8089
