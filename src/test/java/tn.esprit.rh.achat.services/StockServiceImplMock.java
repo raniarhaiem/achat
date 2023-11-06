@@ -1,4 +1,5 @@
 package tn.esprit.rh.achat;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,7 +29,8 @@ class StockServiceImplMock {
         // Define a sample stock and a sample ID
         Long stockId = 1L;
         Stock sampleStock = new Stock();
-        sampleStock.setId(stockId);
+        sampleStock.setIdStock(stockId); // Use the correct field name
+
         // Mock the behavior of the stockRepository
         Mockito.when(stockRepository.findById(stockId)).thenReturn(Optional.of(sampleStock));
 
@@ -37,6 +39,6 @@ class StockServiceImplMock {
 
         // Perform assertions to verify the result
         Assertions.assertNotNull(retrievedStock);
-        Assertions.assertEquals(stockId, retrievedStock.getId());
+        Assertions.assertEquals(stockId, retrievedStock.getIdStock()); 
     }
 }
